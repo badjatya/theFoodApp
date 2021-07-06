@@ -5,7 +5,7 @@ import React from "react";
 import { ThemeProvider } from "styled-components";
 
 // IMPORTING Custom Theme
-import theme from "./App/Theme/Theme";
+import { theme } from "./App/Theme/Theme";
 
 // IMPORTING Screens
 import RestaurantScreen from "./App/screens/Restaurant/RestaurentScreen";
@@ -13,8 +13,8 @@ import RestaurantScreen from "./App/screens/Restaurant/RestaurentScreen";
 export default function App() {
   return (
     <>
-      <ThemeProvider>
-        <RestaurantScreen theme={theme} />
+      <ThemeProvider theme={theme}>
+        <RestaurantScreen />
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>

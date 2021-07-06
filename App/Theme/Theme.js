@@ -1,9 +1,9 @@
-import { colors } from "./colors";
-import { space, lineHeights } from "./spacing";
-import { sizes } from "./sizes";
-import { fonts, fontWeights, fontSizes } from "./fonts";
+import { colors } from "./ThemeFiles/colors";
+import { space, lineHeights } from "./ThemeFiles/spacing";
+import { sizes } from "./ThemeFiles/sizes";
+import { fonts, fontWeights, fontSizes } from "./ThemeFiles/fonts";
 
-const theme = {
+export const theme = {
   colors,
   space,
   lineHeights,
@@ -12,5 +12,3 @@ const theme = {
   fontSizes,
   fontWeights,
 };
-
-export default theme;
