@@ -1,11 +1,21 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+// IMPORTING React-native-paper library
+import { Searchbar } from "react-native-paper";
+
 export default function App() {
+  const [searchQuery, setSearchQuery] = useState("");
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <View style={styles.searchContainer}>
+        <Searchbar
+          placeholder="Search"
+          onChangeText={(text) => setSearchQuery(text)}
+          value={searchQuery}
+        />
+      </View>
       <StatusBar style="auto" />
     </View>
   );
@@ -14,8 +24,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    padding: 20,
+  },
+  searchContainer: {
+    paddingTop: 30,
   },
 });
