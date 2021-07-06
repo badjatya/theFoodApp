@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 // IMPORTING react-native-paper
 import { Card, Title } from "react-native-paper";
 
-const RestaurantInfo = ({ restaurant = {} }) => {
+const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
     name = "Some Restaurant",
     icon,
@@ -31,7 +31,7 @@ const RestaurantInfo = ({ restaurant = {} }) => {
   );
 };
 
-export default RestaurantInfo;
+export default RestaurantInfoCard;
 
 const styles = StyleSheet.create({
   card: {
