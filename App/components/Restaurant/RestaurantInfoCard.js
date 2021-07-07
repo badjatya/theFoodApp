@@ -1,14 +1,21 @@
 import React from "react";
+import { Image, Text } from "react-native";
 
 // IMPORTING Styled-components
 import styled from "styled-components/native";
 
+//IMPORTING Components
+import { Spacer } from "../spacers/spacer";
+
 // IMPORTING react-native-paper
 import { Card } from "react-native-paper";
 
+// IMPORTING SvhXml for using svg
 import { SvgXml } from "react-native-svg";
+
+// IMPORTING SVG
 import starSvg from "../../assets/images/star";
-import hii from "../../assets/images/hii";
+import openIcon from "../../assets/images/open";
 
 // Styles
 const RestaurantCard = styled(Card)`
@@ -37,6 +44,16 @@ const Rating = styled.View`
   padding-bottom: ${(props) => props.theme.space[2]};
 `;
 
+const Section = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+const SectionEnd = styled.View`
+  flex: 1;
+  flex-direction: row;
+  justify-content: flex-end;
+`;
+
 const Address = styled.Text`
   color: ${(props) => props.theme.colors.ui.primary};
   font-family: ${(props) => props.theme.fonts.body};
@@ -47,7 +64,7 @@ const Address = styled.Text`
 const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
     name = "Some Restaurant",
-    icon,
+    icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
     photos = [
       "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg",
     ],
@@ -64,11 +81,25 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
         <Title>{name}</Title>
-        <Rating>
-          {ratingArray.map((index) => (
-            <SvgXml key={index} width="20" height="20" xml={starSvg} />
-          ))}
-        </Rating>
+        <Section>
+          <Rating>
+            {ratingArray.map((item, index) => (
+              <SvgXml key={index} xml={starSvg} width={20} height={20} />
+            ))}
+          </Rating>
+          <SectionEnd>
+            {isClosedTemporarily && (
+              <Text variant="label" style={{ color: "red" }}>
+                CLOSED TEMPORARILY
+              </Text>
+            )}
+            <Spacer variant="left.large" />
+            {isOpenNow && <SvgXml xml={openIcon} width={20} height={20} />}
+            <Spacer variant="left.large" />
+            <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
+          </SectionEnd>
+        </Section>
+
         <Address>{address}</Address>
       </Info>
     </RestaurantCard>
