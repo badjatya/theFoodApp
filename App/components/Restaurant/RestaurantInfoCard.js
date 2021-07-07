@@ -1,11 +1,11 @@
 import React from "react";
-import { Image, Text } from "react-native";
+import { Image, Text, View } from "react-native";
 
 // IMPORTING Styled-components
 import styled from "styled-components/native";
 
 //IMPORTING Components
-import { Spacer } from "../spacers/spacer";
+// import { Spacer } from "../spacers/spacer";
 
 // IMPORTING react-native-paper
 import { Card } from "react-native-paper";
@@ -93,10 +93,12 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
                 CLOSED TEMPORARILY
               </Text>
             )}
-            <Spacer variant="left.large" />
-            {isOpenNow && <SvgXml xml={openIcon} width={20} height={20} />}
-            <Spacer variant="left.large" />
-            <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
+            <View style={{ marginLeft: 16 }}>
+              {isOpenNow && <SvgXml xml={openIcon} width={20} height={20} />}
+            </View>
+            <View style={{ marginLeft: 16 }}>
+              <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
+            </View>
           </SectionEnd>
         </Section>
 
