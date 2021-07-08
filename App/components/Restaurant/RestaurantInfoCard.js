@@ -1,8 +1,11 @@
 import React from "react";
-import { Image, Text, View } from "react-native";
 
 // IMPORTING Styled-components
 import styled from "styled-components/native";
+
+// IMPORTING Components
+import { Spacer } from "../spacers/spacer";
+import { Text } from "../typography/Text";
 
 // IMPORTING react-native-paper
 import { Card } from "react-native-paper";
@@ -34,7 +37,7 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
     <RestaurantCard elevation={5}>
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
-        <Title>{name}</Title>
+        <Text variant="label">{name}</Text>
         <Section>
           <Rating>
             {ratingArray.map((item, index) => (
@@ -43,16 +46,14 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
           </Rating>
           <SectionEnd>
             {isClosedTemporarily && (
-              <Text variant="label" style={{ color: "red" }}>
-                CLOSED TEMPORARILY
-              </Text>
+              <Text variant="error">CLOSED TEMPORARILY</Text>
             )}
-            <View style={{ marginLeft: 16 }}>
+            <Spacer position="left" size="large">
               {isOpenNow && <SvgXml xml={openIcon} width={20} height={20} />}
-            </View>
-            <View style={{ marginLeft: 16 }}>
-              <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
-            </View>
+            </Spacer>
+            <Spacer position="left" size="large">
+              <Icon source={{ uri: icon }} />
+            </Spacer>
           </SectionEnd>
         </Section>
 
@@ -77,12 +78,6 @@ const Info = styled.View`
   padding-top: 0;
 `;
 
-const Title = styled.Text`
-  color: ${(props) => props.theme.colors.ui.primary};
-  font-family: ${(props) => props.theme.fonts.heading};
-  font-size: ${(props) => props.theme.fontSizes.body};
-`;
-
 const Rating = styled.View`
   flex-direction: row;
   padding-top: ${(props) => props.theme.space[2]};
@@ -97,6 +92,11 @@ const SectionEnd = styled.View`
   flex: 1;
   flex-direction: row;
   justify-content: flex-end;
+`;
+
+const Icon = styled.Image`
+  width: 20px;
+  height: 20px;
 `;
 
 const Address = styled.Text`
