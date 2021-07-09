@@ -10,8 +10,8 @@ import { theme } from "./App/Theme/Theme";
 // IMPORTING Navigation
 import Navigation from "./App/navigation/Navigation";
 
-// IMPORTING Services
-import { restaurantsRequest } from "./App/services/restaurant/restaurant.service";
+// IMPORTING Restaurant Context
+import { RestaurantsContextProvider } from "./App/services/restaurant/restaurant.context";
 
 // IMPORTING Google Fonts
 import {
@@ -36,7 +36,9 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Navigation />
+        <RestaurantsContextProvider>
+          <Navigation />
+        </RestaurantsContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>
