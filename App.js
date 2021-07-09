@@ -7,8 +7,8 @@ import { ThemeProvider } from "styled-components";
 // IMPORTING Custom Theme
 import { theme } from "./App/Theme/Theme";
 
-// IMPORTING Screens
-import RestaurantScreen from "./App/screens/Restaurant/RestaurentScreen";
+// IMPORTING Navigation
+import Navigation from "./App/navigation/Navigation";
 
 // IMPORTING Google Fonts
 import {
@@ -33,7 +33,7 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <RestaurantScreen />
+        <Navigation />
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>

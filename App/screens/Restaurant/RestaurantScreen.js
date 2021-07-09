@@ -9,22 +9,6 @@ import styled from "styled-components/native";
 // IMPORTING Components
 import RestaurantInfoCard from "../../components/Restaurant/RestaurantInfoCard";
 
-// Styles
-const SafeArea = styled(SafeAreaView)`
-  flex: 1;
-  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
-`;
-
-const RestaurantList = styled(FlatList).attrs({
-  contentContainerStyle: {
-    padding: 16,
-  },
-})``;
-
-const SearchContainer = styled.View`
-  padding: ${(props) => props.theme.space[3]};
-`;
-
 const RestaurantsScreen = () => (
   <SafeArea>
     <SearchContainer>
@@ -53,5 +37,22 @@ const RestaurantsScreen = () => (
     />
   </SafeArea>
 );
+
+// Styles
+const SafeArea = styled(SafeAreaView)`
+  flex: 1;
+  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
+`;
+
+const RestaurantList = styled(FlatList).attrs({
+  contentContainerStyle: {
+    padding: 16,
+  },
+})``;
+
+const SearchContainer = styled.View`
+  padding: ${(props) => props.theme.space[3]};
+  padding-bottom: ${(props) => props.theme.space[2]};
+`;
 
 export default RestaurantsScreen;
