@@ -8,12 +8,13 @@ import styled from "styled-components/native";
 
 // IMPORTING Components
 import RestaurantInfoCard from "../../components/Restaurant/RestaurantInfoCard";
+import { Spacer } from "../../components/spacers/spacer";
 
 // Importing Context
 import { RestaurantsContext } from "../../services/restaurant/restaurant.context";
 
 const RestaurantsScreen = () => {
-  const restaurantContext = useContext(RestaurantsContext);
+  const { isLoading, error, restaurants } = useContext(RestaurantsContext);
 
   return (
     <SafeArea>
@@ -22,9 +23,11 @@ const RestaurantsScreen = () => {
       </SearchContainer>
 
       <RestaurantList
-        data={restaurantContext.restaurants}
-        renderItem={() => <RestaurantInfoCard />}
-        keyExtractor={(item) => item.toString()}
+        data={restaurants}
+        renderItem={({ item }) => {
+          return <RestaurantInfoCard restaurant={item} />;
+        }}
+        keyExtractor={(item, index) => index.toString()}
       />
     </SafeArea>
   );
