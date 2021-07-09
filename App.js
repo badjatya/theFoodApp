@@ -10,6 +10,9 @@ import { theme } from "./App/Theme/Theme";
 // IMPORTING Navigation
 import Navigation from "./App/navigation/Navigation";
 
+// IMPORTING Services
+import { restaurantsRequest } from "./App/services/restaurant/restaurant.service";
+
 // IMPORTING Google Fonts
 import {
   useFonts as useOswald,
