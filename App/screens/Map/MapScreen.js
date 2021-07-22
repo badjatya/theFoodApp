@@ -1,12 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 // Importing Maps
 import MapView from "react-native-maps";
 
+// Importing Components
+import MapSearch from "../../components/MapSearch/MapSearch";
+
 const MapScreen = () => {
   return (
     <View>
+      <MapSearch />
       <MapView style={styles.map} />
     </View>
   );
