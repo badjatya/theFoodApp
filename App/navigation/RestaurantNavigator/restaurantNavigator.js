@@ -1,7 +1,10 @@
 import React from "react";
 
 // Importing Stack navigation
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from "@react-navigation/stack";
 
 // Importing Screens
 import RestaurantsScreen from "../../screens/Restaurant/RestaurantScreen";
@@ -11,7 +14,12 @@ const RestaurantStack = createStackNavigator();
 
 const RestaurantsNavigator = () => {
   return (
-    <RestaurantStack.Navigator headerMode="none">
+    <RestaurantStack.Navigator
+      headerMode="none"
+      screenOptions={{
+        ...TransitionPresets.ModalPresentationIOS,
+      }}
+    >
       <RestaurantStack.Screen
         name="Restaurants"
         component={RestaurantsScreen}

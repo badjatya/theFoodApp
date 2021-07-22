@@ -1,11 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, SafeAreaView } from "react-native";
 
-const RestaurantDetailScreen = () => {
+// Importing Components
+import RestaurantInfoCard from "../../components/Restaurant/RestaurantInfoCard";
+
+const RestaurantDetailScreen = (props) => {
+  const { route } = props;
+  const { restaurant } = route;
   return (
-    <View>
-      <Text>RestaurantDetailScreen</Text>
-    </View>
+    <SafeAreaView>
+      <RestaurantInfoCard restaurant={restaurant} />
+    </SafeAreaView>
   );
 };
 
