@@ -4,7 +4,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // IMPORTING Screen
-import RestaurantsScreen from "../../screens/Restaurant/RestaurantScreen";
+import RestaurantsNavigator from "../RestaurantNavigator/restaurantNavigator";
 import MapScreen from "../../screens/Map/MapScreen";
 import SettingScreen from "../../screens/settings/SettingScreen";
 
@@ -40,7 +40,10 @@ const TabNavigatorScreen = () => {
         inactiveTintColor: "gray",
       }}
     >
-      <TabNavigator.Screen name="Restaurants" component={RestaurantsScreen} />
+      <TabNavigator.Screen
+        name="Restaurants"
+        component={RestaurantsNavigator}
+      />
       <TabNavigator.Screen name="Map" component={MapScreen} />
       <TabNavigator.Screen name="Settings" component={SettingScreen} />
     </TabNavigator.Navigator>
