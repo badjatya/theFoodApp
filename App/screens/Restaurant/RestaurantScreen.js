@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { StatusBar, SafeAreaView, FlatList } from "react-native";
+import { StatusBar, SafeAreaView, FlatList, Pressable } from "react-native";
 
 // IMPORTING From paper
 import { ActivityIndicator, Colors } from "react-native-paper";
@@ -14,7 +14,9 @@ import { Search } from "../../components/SearchComponent/searchComponent";
 // Importing Context
 import { RestaurantsContext } from "../../services/restaurant/restaurant.context";
 
-const RestaurantsScreen = () => {
+const RestaurantsScreen = (props) => {
+  const { navigation } = props;
+
   const { isLoading, error, restaurants } = useContext(RestaurantsContext);
 
   return (
@@ -30,7 +32,11 @@ const RestaurantsScreen = () => {
       <RestaurantList
         data={restaurants}
         renderItem={({ item }) => {
-          return <RestaurantInfoCard restaurant={item} />;
+          return (
+            <Pressable onPress={() => navigation.navigate("RestaurantDetail")}>
+              <RestaurantInfoCard restaurant={item} />
+            </Pressable>
+          );
         }}
         keyExtractor={(item, index) => index.toString()}
       />
